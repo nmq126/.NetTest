@@ -77,7 +77,7 @@ namespace IdentityTest.Controllers
         // GET: User
         public ActionResult Index()
         {
-            return View();
+            return View(myIdentityDbContext.Users.ToList());
         }
         public ActionResult Login()
         {
@@ -105,9 +105,6 @@ namespace IdentityTest.Controllers
             HttpContext.GetOwinContext().Authentication.SignOut();
             return Redirect("/Home");
         }
-        public ActionResult FindAll()
-        {
-            return View("UserList");
-        }
+        
     }
 }
